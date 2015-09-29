@@ -8,13 +8,13 @@
 #include "myode.h"
  
 // オブジェクトの宣言
-Omni robot;			// 全方向ロボット
+Omni robot;				// 全方向ロボット
 Box wall1, wall2, wall3, wall4, wall5, wall6, wall7;
-VecForward vf;		// ベクトル場(経路進む)
+VecForward vf;			// ベクトル場(経路進む)
 VecAvoid vw, vo;		// ベクトル場(障害物回避)
 PRep pr;
 PGoal pg;
-Txt p, w, o, robo;	// テキストファイルの処理
+Txt p, w, o, robo;		// テキストファイルの処理
 int i;
 
 // カメラの設定
@@ -106,11 +106,11 @@ static void setDrawStuff()
 // メイン関数
 int main(int argc, char *argv[])
 {
-    p.loadTxt("path.csv");	// 経路の位置を取得
-    w.loadTxt("wall.csv");	// 壁の位置を取得
-    o.loadTxt("obst.csv");	// 壁の位置を取得
-    dInitODE();				// ODEの初期化
-    setDrawStuff();			// 描画関数の設定
+    p.loadTxt("data\\path.csv");	// 経路の位置を取得
+    w.loadTxt("data\\wall.csv");	// 壁の位置を取得
+    o.loadTxt("data\\obst.csv");	// 壁の位置を取得
+    dInitODE();						// ODEの初期化
+    setDrawStuff();					// 描画関数の設定
     // ワールド, スペース, 接触点グループの生成
     world = dWorldCreate();
     space = dHashSpaceCreate(0);
