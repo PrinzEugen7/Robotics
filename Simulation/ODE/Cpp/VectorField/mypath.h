@@ -8,10 +8,10 @@
 #include <ctime>
 #include "mytxt.h"
 
-Txt path; // テキストファイルの処理
+Txt path, obst, wall; // テキストファイルの処理
 using namespace cv;
 using namespace std;
-const int w = 200, h = 200;			// 地図のサイズ
+const int w = 100, h = 100;			// 地図のサイズ
 static int MAP[w][h];
 static int closed_map[w][h];			// Closedノード用マップ
 static int open_map[w][h] = {0};		// Openノード用マップ
@@ -138,6 +138,10 @@ string pathFind(const int & x1, const int & y1, const int & x2, const int & y2)
 	}
 }
 
+void serchObstacle(Mat im){
+
+}
+
 void loadMap(Mat im){
 	Mat gray;												// 画像格納用
 	cvtColor(im, gray, CV_RGB2GRAY);							// グレースケール変換
@@ -151,10 +155,12 @@ void loadMap(Mat im){
 			}
 			else{
 				MAP[x][y] = 1;
+				wall.saveTxt("wall.csv",x,y);			
 			}
 		}
 	}
 }
+
 
 int serchPath(char* fname, int x1, int y1, int x2, int y2)
 {
@@ -172,13 +178,13 @@ int serchPath(char* fname, int x1, int y1, int x2, int y2)
 		x = x + dx[j];
 		y = y + dy[j];
 		// 算出した最短経路を地図画像に描く
-		path.saveTxt("path.csv",x,y,0);
+		path.saveTxt("path.csv",x,y);
 	}
 	return 0;
 }
 
 int main(int argc, char *argv[])
 {
-	serchPath("map.jpg", 0, 0, 190, 190);
+	serchPath("map.jpg", 0, 0, 90, 90);
  	return(0);
 }
