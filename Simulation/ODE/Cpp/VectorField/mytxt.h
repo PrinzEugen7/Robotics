@@ -2,7 +2,7 @@ int countLines(char* fname)
 {
     FILE *fp;
     int i = 0;
-    double a,b,c;
+    double a,b;
     // エラー処理
     if((fp=fopen(fname,"r"))==NULL)
     {
@@ -12,7 +12,7 @@ int countLines(char* fname)
     // データ読み込み
     while(feof(fp) == 0)
     {
-        fscanf(fp, "%lf%lf%lf", &a, &b, &c);
+        fscanf(fp, "%lf%lf", &a, &b);
         i+=1;
     }
     fclose(fp);
@@ -47,14 +47,14 @@ public:
         // データ読み込み
         while(feof(fp) == 0)
         {
-            fscanf(fp, "%lf%lf%lf", &x[i], &y[i], &z[i]);
+            fscanf(fp, "%lf%lf%lf", &x[i], &y[i]);
             i = i + 1;
         }
         fclose(fp);
         lines = i+1;
     }
     // テキストファイルに書き込み
-    void saveTxt(char *fname, double rx, double ry, double rz)
+    void saveTxt(char *fname, double rx, double ry)
     {
         // ローカル変数の定義
         FILE *fp;
@@ -65,7 +65,7 @@ public:
             exit(1);
         }
         // データ書き込み
-        fprintf(fp, "%0.2f\t%0.2f\t%0.2f\n", rx, ry, rz);
+        fprintf(fp, "%0.2f\t%0.2f\n", rx, ry);
         fclose(fp);
     }
 };
