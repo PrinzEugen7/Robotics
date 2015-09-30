@@ -1,4 +1,4 @@
-include <opencv2/opencv.hpp>
+#include <opencv2/opencv.hpp>
 #include <opencv2/opencv_lib.hpp>
 #include <iostream>
 #include <iomanip>
@@ -6,7 +6,9 @@ include <opencv2/opencv.hpp>
 #include <string>
 #include <math.h>
 #include <ctime>
+#include "mytxt.h"
 
+Txt path; // テキストファイルの処理
 using namespace cv;
 using namespace std;
 const int w = 200, h = 200;			// 地図のサイズ
@@ -170,9 +172,8 @@ int serchPath(char* fname, int x1, int y1, int x2, int y2)
 		x = x + dx[j];
 		y = y + dy[j];
 		// 算出した最短経路を地図画像に描く
-		ellipse(im, Point(x, y), Size(1, 1), 0, 0, 360, Scalar(0, 0, 200));
+		path.saveTxt("path.csv",x,y,0);
 	}
-	imwrite("map2.jpg", im);
 	return 0;
 }
 
