@@ -176,9 +176,8 @@ void obstDetection(Mat im){
 	}
 }
 
-int serchPath(char* fname, int x1, int y1, int x2, int y2)
+int serchPath(Mat im, int x1, int y1, int x2, int y2)
 {
-	Mat im = imread(fname);	// 画像の取得
 	obstDetection(im);
 	loadMap(im);
 	string route = pathFind(x1, y1, x2, y2);
@@ -200,6 +199,7 @@ int serchPath(char* fname, int x1, int y1, int x2, int y2)
 
 int main(int argc, char *argv[])
 {
-	serchPath("map.jpg", 0, 0, 90, 90);
+	Mat im = imread(fname);	// 画像の取得
+	serchPath(im, 0, 0, 90, 90);
  	return(0);
 }
