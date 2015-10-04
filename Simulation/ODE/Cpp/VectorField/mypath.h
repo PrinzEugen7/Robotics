@@ -161,12 +161,6 @@ void loadMap(Mat im){
 	}
 }
 
-#include <iostream>
-#include <vector>
-#include "opencv2\opencv.hpp"
-
-using namespace cv;
-
 void obstDetection(Mat im){
 	hsv, mask;					        // 画像オブジェクトの宣言
 	cvtColor(im, hsv, CV_BGR2HSV);      // 画像をRGBからHSVに変換
