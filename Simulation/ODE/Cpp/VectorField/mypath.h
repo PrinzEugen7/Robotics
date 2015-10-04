@@ -161,10 +161,33 @@ void loadMap(Mat im){
 	}
 }
 
+#include <iostream>
+#include <vector>
+#include "opencv2\opencv.hpp"
+
+using namespace cv;
+
+void obstDetection(Mat im){
+    hsv, mask;					        // 画像オブジェクトの宣言
+    cvtColor(im, hsv, CV_BGR2HSV);      // 画像をRGBからHSVに変換
+    inRange(hsv, Scalar(150, 70, 70), Scalar(360, 255, 255), mask);	// 色検出でマスク画像の作成
+    imshow("Mask", mask);               // マスク画像の作成
+    waitKey(0);
+	int h = mask.rows;
+	int w = mask.cols;
+	for (int y = 0; y < h; y++){
+		for (int x = 0; x < w; x++){
+			if (mask.data[y * h + x] == 255){
+
+			}
+		}
+	}
+}
 
 int serchPath(char* fname, int x1, int y1, int x2, int y2)
 {
 	Mat im = imread(fname);	// 画像の取得
+	obstDetection(im);
 	loadMap(im);
 	string route = pathFind(x1, y1, x2, y2);
 	// エラー処理(経路が見つからなかい場合)
