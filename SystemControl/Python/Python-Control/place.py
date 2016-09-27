@@ -15,13 +15,13 @@ def main():
                 [0, 2]])
   B = np.array([[1],
                 [1]])
-  poles = [-2, -3]
   # システムが可制御でなければ終了
   if check_ctrb(A, B) == -1 : exit
-  # 虚数の定義
-  i = np.sqrt(-1)
-  poles = [-1,-2]
+  # 所望の極
+  poles = [-2, -3]
+  # ゲインの設計（極配置法）
   F = place(A, B, poles)
+  # 計算結果の表示
   print("ゲイン:", F)
   print("設計したゲインの極:", np.linalg.eigvals(A-B*F))
 
