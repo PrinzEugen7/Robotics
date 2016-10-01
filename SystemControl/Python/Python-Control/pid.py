@@ -6,12 +6,10 @@ def main():
   num = [2, 5, 1]     # 分子の係数
   den = [1, 2, 3]     # 分母の係数
   sys = tf(num, den)  # 伝達関数モデルの作成
-  nyquist(sys)         # ナイキスト線図のプロット
-  plt.show()
   # PID制御器のパラメータ
-  Kp = 0.5  # 比例
-  Ki = 0.01 # 積分
-  Kd = 0.01 # 微分
+  Kp = 0.6  # 比例
+  Ki = 0.03 # 積分
+  Kd = 0.03 # 微分
   num = [Kd, Kp, Ki]
   den = [1, 0]
   K = tf(num, den)
