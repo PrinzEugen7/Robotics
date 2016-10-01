@@ -2,10 +2,6 @@ from control.matlab import *
 from matplotlib import pyplot as plt
     
 def main():
-  # 伝達関数のパラメータ
-  num = [2, 5, 1]     # 分子の係数
-  den = [1, 2, 3]     # 分母の係数
-  sys = tf(num, den)  # 伝達関数モデルの作成
   # PID制御器のパラメータ
   Kp = 0.6  # 比例
   Ki = 0.03 # 積分
