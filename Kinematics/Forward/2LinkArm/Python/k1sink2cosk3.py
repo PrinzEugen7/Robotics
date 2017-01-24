@@ -16,6 +16,5 @@ def main():
     print u"θ+ = " + str(theta_p)
     print u"θ- = " + str(theta_m)
 
-##---------------------------
 if __name__ == '__main__':
     main()
