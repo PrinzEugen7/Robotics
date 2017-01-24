@@ -13,8 +13,8 @@ def main():
     theta_p = degrees(theta_p)
     theta_m = degrees(theta_m)
     # 計算結果表示
-    print u"θ+ = " + str(theta_p)
-    print u"θ- = " + str(theta_m)
+    print("theta+ = ", theta_p)
+    print("theta- = ", theta_m)
 
 if __name__ == '__main__':
     main()
